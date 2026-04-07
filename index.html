@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>InstaSeel — Cheapest Instagram Followers, Likes & Views in India</title>
+  <meta name="description"
+    content="India's cheapest SMM panel. Buy real Instagram followers from ₹169/1K, likes from ₹49/1K, views from ₹9/1K. Instant delivery, no password needed." />
+  <meta name="keywords"
+    content="buy instagram followers cheap india, cheapest smm panel, buy instagram likes, buy instagram views, instagram growth india" />
+  <meta name="theme-color" content="#22c55e" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
+  <link rel="icon" type="image/png" href="logo.png" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="container">
+      <a href="#" class="logo" id="logo">
+        <span class="logo-icon">⚡</span>
+        <span class="logo-text">Insta<span class="accent">Seel</span></span>
+      </a>
+      <a href="https://t.me/velvettool" target="_blank" rel="noopener" class="header-contact" id="header-contact-btn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+          <path
+            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.07-.2c-.08-.06-.19-.04-.27-.02-.12.02-1.96 1.25-5.54 3.66-.52.36-1 .53-1.42.52-.47-.01-1.37-.26-2.03-.48-.82-.27-1.47-.42-1.42-.88.03-.24.37-.49 1.02-.75 3.99-1.74 6.65-2.89 7.99-3.45 3.8-1.58 4.59-1.86 5.1-1.87.11 0 .37.03.54.17.14.12.18.28.2.45-.01.06.01.24 0 .38z" />
+        </svg>
+        Contact
+      </a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" id="hero-section">
+    <div class="container">
+      <div class="hero-badge" id="hero-badge">
+        <span class="badge-dot"></span>
+        Cheapest in India 🇮🇳
+      </div>
+      <h1 class="hero-title">
+        Grow Your Instagram<br /><span class="highlight">Faster & Cheaper</span>
+      </h1>
+      <p class="hero-desc">
+        Real followers, likes, views & more — starting at just <strong>₹9/1K</strong>. No password needed. Delivered in
+        minutes.
+      </p>
+      <div class="trust-row">
+        <div class="trust-pill"><span>🔒</span> No Password</div>
+        <div class="trust-pill"><span>⚡</span> Instant Delivery</div>
+        <div class="trust-pill"><span>✅</span> Safe & Secure</div>
+        <div class="trust-pill"><span>🇮🇳</span> Cheapest in India</div>
+      </div>
+      <a href="#order-section" class="hero-btn" id="hero-cta-btn">
+        🚀 Order Now — It's Instant
+      </a>
+    </div>
+  </section>
+
+  <!-- Services Grid -->
+  <section class="services" id="services-section">
+    <div class="container">
+      <h2 class="sec-title">Our Services</h2>
+      <p class="sec-desc">Tap any service to jump straight to ordering</p>
+      <div class="services-grid" id="services-grid"></div>
+    </div>
+  </section>
+
+  <!-- Order Section -->
+  <section class="order-section" id="order-section">
+    <div class="container">
+      <div class="order-card" id="order-card">
+        <div class="order-head">
+          <h2>Place Your Order</h2>
+          <p>Takes less than 30 seconds • No sign-up needed</p>
+        </div>
+
+        <form id="order-form" autocomplete="off">
+          <!-- Category -->
+          <div class="field" id="field-category">
+            <label class="field-label" for="service-category">📦 Service Category</label>
+            <div class="select-wrap">
+              <select id="service-category" required>
+                <option value="" disabled selected>Choose a service…</option>
+              </select>
+              <svg class="sel-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2.5">
+                <path d="M6 9l6 6 6-6" />
+              </svg>
+            </div>
+          </div>
+
+          <!-- Type -->
+          <div class="field is-hidden" id="field-type">
+            <label class="field-label">⭐ Service Type</label>
+            <div class="type-list" id="type-list"></div>
+          </div>
+
+          <!-- Link -->
+          <div class="field is-hidden" id="field-link">
+            <label class="field-label" for="insta-link">
+              🔗 <span id="link-label-text">Instagram Profile Link or Post Link</span>
+            </label>
+            <input type="text" id="insta-link" class="field-input"
+              placeholder="https://instagram.com/username or post link" required />
+            <span class="field-hint">We never ask for your password 🔒</span>
+          </div>
+
+          <!-- Quantity -->
+          <div class="field is-hidden" id="field-qty">
+            <label class="field-label" for="quantity">📊 Quantity</label>
+            <div class="qty-row">
+              <button type="button" class="qty-btn" id="qty-minus" aria-label="Decrease quantity">−</button>
+              <input type="number" id="quantity" class="field-input qty-input" min="10" value="1000" required />
+              <button type="button" class="qty-btn" id="qty-plus" aria-label="Increase quantity">+</button>
+            </div>
+            <div class="presets" id="presets">
+              <button type="button" class="preset" data-v="100">100</button>
+              <button type="button" class="preset" data-v="500">500</button>
+              <button type="button" class="preset active" data-v="1000">1K</button>
+              <button type="button" class="preset" data-v="5000">5K</button>
+              <button type="button" class="preset" data-v="10000">10K</button>
+              <button type="button" class="preset" data-v="50000">50K</button>
+            </div>
+          </div>
+
+          <!-- Summary -->
+          <div class="summary is-hidden" id="summary">
+            <div class="sum-row"><span>Service</span><strong id="s-service">—</strong></div>
+            <div class="sum-row"><span>Type</span><strong id="s-type">—</strong></div>
+            <div class="sum-row"><span>Quantity</span><strong id="s-qty">—</strong></div>
+            <div class="sum-row"><span>Rate</span><strong id="s-rate">—</strong></div>
+            <hr class="sum-hr" />
+            <div class="sum-row sum-total"><span>Total</span><strong id="s-total" class="total-price">₹0</strong></div>
+            <div class="sum-delivery" id="s-delivery">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10" />
+                <polyline points="12 6 12 12 16 14" />
+              </svg>
+              <span id="s-delivery-text">Estimated: 0–30 min</span>
+            </div>
+          </div>
+
+          <!-- Submit -->
+          <button type="submit" class="submit-btn is-hidden" id="submit-btn">
+            <span class="sub-text">🚀 Order via Telegram</span>
+            <span class="sub-price" id="sub-price">₹0</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="how" id="how-section">
+    <div class="container">
+      <h2 class="sec-title">How It Works</h2>
+      <div class="steps">
+        <div class="step-card">
+          <div class="step-num">1</div>
+          <div class="step-ico">📋</div>
+          <h3>Pick Service</h3>
+          <p>Choose from followers, likes, views & more</p>
+        </div>
+        <div class="step-arrow">→</div>
+        <div class="step-card">
+          <div class="step-num">2</div>
+          <div class="step-ico">✍️</div>
+          <h3>Add Details</h3>
+          <p>Enter your username, link & quantity</p>
+        </div>
+        <div class="step-arrow">→</div>
+        <div class="step-card">
+          <div class="step-num">3</div>
+          <div class="step-ico">⚡</div>
+          <h3>Get Delivered</h3>
+          <p>Receive your order within minutes</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Highlights -->
+  <section class="pricing-highlight" id="pricing-section">
+    <div class="container">
+      <h2 class="sec-title">Why We're the Cheapest</h2>
+      <p class="sec-desc">Compare our prices with any SMM panel in India</p>
+      <div class="price-compare">
+        <div class="pc-card">
+          <div class="pc-emoji">👥</div>
+          <div class="pc-service">Followers</div>
+          <div class="pc-others">Others: ₹300+/1K</div>
+          <div class="pc-ours">We: <strong>₹169/1K</strong></div>
+          <div class="pc-save">Save 44%</div>
+        </div>
+        <div class="pc-card">
+          <div class="pc-emoji">❤️</div>
+          <div class="pc-service">Likes</div>
+          <div class="pc-others">Others: ₹100+/1K</div>
+          <div class="pc-ours">We: <strong>₹49/1K</strong></div>
+          <div class="pc-save">Save 51%</div>
+        </div>
+        <div class="pc-card">
+          <div class="pc-emoji">👁️</div>
+          <div class="pc-service">Views</div>
+          <div class="pc-others">Others: ₹30+/1K</div>
+          <div class="pc-ours">We: <strong>₹9/1K</strong></div>
+          <div class="pc-save">Save 70%</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq" id="faq-section">
+    <div class="container">
+      <h2 class="sec-title">FAQs</h2>
+      <div class="faq-list" id="faq-list">
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            <span>Is it safe to buy Instagram followers?</span>
+            <svg class="faq-arr" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2.5">
+              <path d="M6 9l6 6 6-6" />
+            </svg>
+          </button>
+          <div class="faq-a">
+            <p>Yes! We use completely safe methods. We never ask for your password and your account remains fully
+              secure.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            <span>How fast is the delivery?</span>
+            <svg class="faq-arr" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2.5">
+              <path d="M6 9l6 6 6-6" />
+            </svg>
+          </button>
+          <div class="faq-a">
+            <p>Most orders start within 0–15 minutes. Larger orders are delivered gradually for a natural look.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            <span>Do you need my password?</span>
+            <svg class="faq-arr" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2.5">
+              <path d="M6 9l6 6 6-6" />
+            </svg>
+          </button>
+          <div class="faq-a">
+            <p>Never! We only need your public username or post/reel link. Your password is never required.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            <span>What payment methods do you accept?</span>
+            <svg class="faq-arr" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2.5">
+              <path d="M6 9l6 6 6-6" />
+            </svg>
+          </button>
+          <div class="faq-a">
+            <p>UPI, Google Pay, PhonePe, Paytm, bank transfer and more. Payment info is shared via Telegram after you
+              order.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            <span>Will the followers/likes drop?</span>
+            <svg class="faq-arr" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2.5">
+              <path d="M6 9l6 6 6-6" />
+            </svg>
+          </button>
+          <div class="faq-a">
+            <p>Our premium services come with a refill guarantee. If there's any drop, we refill for free.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer" id="footer">
+    <div class="container">
+      <div class="footer-logo">
+        <img src="logo.png" alt="InstaSeel Logo" class="logo-img" />
+        <span class="logo-text">Insta<span class="accent">Seel</span></span>
+      </div>
+      <p class="footer-desc">India's cheapest & most trusted Instagram growth service. Instant delivery. No password
+        required. 24/7 support.</p>
+      <a href="https://t.me/velvettool" target="_blank" rel="noopener" class="footer-tg" id="footer-telegram-link">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+          <path
+            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.07-.2c-.08-.06-.19-.04-.27-.02-.12.02-1.96 1.25-5.54 3.66-.52.36-1 .53-1.42.52-.47-.01-1.37-.26-2.03-.48-.82-.27-1.47-.42-1.42-.88.03-.24.37-.49 1.02-.75 3.99-1.74 6.65-2.89 7.99-3.45 3.8-1.58 4.59-1.86 5.1-1.87.11 0 .37.03.54.17.14.12.18.28.2.45-.01.06.01.24 0 .38z" />
+        </svg>
+        Chat with us on Telegram
+      </a>
+      <p class="footer-copy">© 2026 InstaSeel. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Sticky Mobile CTA -->
+  <div class="sticky-cta" id="sticky-cta">
+    <a href="#order-section" class="sticky-btn" id="sticky-order-btn">🚀 Order Now</a>
+  </div>
+
+  <script src="firebase-config.js"></script>
+  <script type="module" src="script.js"></script>
+</body>
+
+</html>
