@@ -46,7 +46,10 @@
     <header class="admin-header" id="admin-header">
       <div class="ah-left">
         <span class="ah-logo">⚡ Insta<span class="accent">Seel</span></span>
-        <span class="ah-badge">Admin</span>
+        <div class="region-switcher" id="region-switcher">
+          <button class="region-btn active" data-region="india">🇮🇳 India</button>
+          <button class="region-btn" data-region="usa">🇺🇸 USA</button>
+        </div>
       </div>
       <div class="ah-right">
         <a href="index.html" class="ah-link" id="view-site-link" target="_blank">
@@ -131,6 +134,10 @@
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2"/></svg>
           Clear All
         </button>
+        <button class="tb-btn tb-primary" id="add-order-btn" style="background: var(--green); color: #fff; box-shadow: var(--shadow-green);">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          Add Order
+        </button>
       </div>
     </section>
 
@@ -171,8 +178,8 @@
       <section class="pricing-mgmt" id="pricing-mgmt">
         <div class="pm-header">
           <div class="pm-header-left">
-            <h2 class="pm-title">💰 Price Management</h2>
-            <p class="pm-desc">Edit service prices (₹ per 1,000). Changes apply instantly on the main site.</p>
+            <h2 class="pm-title">💰 Price Management (<span id="pm-region-label">India</span>)</h2>
+            <p class="pm-desc">Edit service prices (<span id="pm-currency-label">₹</span> per 1,000). Changes apply instantly on the <span id="pm-site-label">main</span> site.</p>
           </div>
           <div class="pm-header-right">
             <button class="pm-btn pm-reset" id="pm-reset-btn">
@@ -202,6 +209,60 @@
       </div>
       <div class="modal-body" id="modal-body"></div>
       <div class="modal-footer" id="modal-footer"></div>
+    </div>
+  </div>
+
+  <!-- Create Order Modal (New) -->
+  <div class="modal-overlay" id="create-order-overlay" style="display:none">
+    <div class="modal">
+      <div class="modal-header">
+        <h3>Create New Order (<span class="region-label">India</span>)</h3>
+        <button class="modal-close" id="create-modal-close">✕</button>
+      </div>
+      <form id="admin-create-order-form">
+        <div class="modal-body">
+          <div class="field" style="margin-bottom:15px">
+            <label style="display:block; font-size:.75rem; font-weight:700; color:var(--text-muted); margin-bottom:5px">Service</label>
+            <select id="ac-service" class="tb-select" style="width:100%" required>
+              <option value="" disabled selected>Select Service</option>
+            </select>
+          </div>
+          <div class="field" style="margin-bottom:15px">
+            <label style="display:block; font-size:.75rem; font-weight:700; color:var(--text-muted); margin-bottom:5px">Tier</label>
+            <select id="ac-type" class="tb-select" style="width:100%" required>
+              <option value="" disabled selected>Select Tier</option>
+            </select>
+          </div>
+          <div class="field" style="margin-bottom:15px">
+            <label style="display:block; font-size:.75rem; font-weight:700; color:var(--text-muted); margin-bottom:5px">Link / Username</label>
+            <input type="text" id="ac-link" class="tb-select" style="width:100%" placeholder="https://..." required />
+          </div>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:15px">
+            <div class="field">
+              <label style="display:block; font-size:.75rem; font-weight:700; color:var(--text-muted); margin-bottom:5px">Quantity</label>
+              <input type="number" id="ac-qty" class="tb-select" style="width:100%" value="1000" min="1" required />
+            </div>
+            <div class="field">
+              <label style="display:block; font-size:.75rem; font-weight:700; color:var(--text-muted); margin-bottom:5px">Price (<span class="currency-label">₹</span>)</label>
+              <input type="text" id="ac-price" class="tb-select" style="width:100%" placeholder="0.00" required />
+            </div>
+          </div>
+          <div id="ac-extra-fields" style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:15px">
+             <div class="field">
+              <label style="display:block; font-size:.75rem; font-weight:700; color:var(--text-muted); margin-bottom:5px">Current Count (Before)</label>
+              <input type="number" id="ac-before" class="tb-select" style="width:100%" value="0" />
+            </div>
+            <div class="field">
+              <label style="display:block; font-size:.75rem; font-weight:700; color:var(--text-muted); margin-bottom:5px">Target Count (After)</label>
+              <input type="number" id="ac-after" class="tb-select" style="width:100%" value="0" readonly style="background:#f9fafb" />
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="mbtn-cancel" id="create-modal-cancel">Cancel</button>
+          <button type="submit" class="mbtn-primary">Create Order</button>
+        </div>
+      </form>
     </div>
   </div>
 

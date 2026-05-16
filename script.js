@@ -21,10 +21,10 @@ const SERVICES = [
     placeholder: 'https://instagram.com/username',
     label: 'Instagram Profile Link',
     types: [
-      { id: 'basic',   name: 'Basic',        desc: 'Mixed quality followers',            price: 169, pop: false },
-      { id: 'popular', name: 'Most Popular',  desc: 'High quality, real-looking profiles', price: 189, pop: true  },
-      { id: 'premium', name: 'Premium',       desc: 'Top quality with pics & posts',      price: 229, pop: false },
-      { id: 'ultra',   name: 'Ultra Premium', desc: 'Highest quality Indian followers',    price: 249, pop: false },
+      { id: 'basic',   name: 'Basic',        desc: 'Mixed quality followers (No Refill)',            price: 169, pop: false },
+      { id: 'popular', name: 'Most Popular',  desc: 'High quality profiles (1 Month Refill)', price: 189, pop: true  },
+      { id: 'premium', name: 'Premium',       desc: 'Top quality profiles (3 Months Refill)',      price: 229, pop: false },
+      { id: 'ultra',   name: 'Ultra Premium', desc: 'Highest quality Indian (1 Year Refill)',    price: 249, pop: false },
     ]
   },
   {
@@ -37,10 +37,10 @@ const SERVICES = [
     placeholder: 'https://instagram.com/p/...',
     label: 'Post or Reel Link',
     types: [
-      { id: 'basic',   name: 'Basic',        desc: 'Standard likes',          price: 49, pop: false },
-      { id: 'popular', name: 'Most Popular',  desc: 'High quality likes',      price: 59, pop: true  },
-      { id: 'premium', name: 'Premium',       desc: 'Real Indian likes',       price: 69, pop: false },
-      { id: 'ultra',   name: 'Ultra Premium', desc: 'Top tier instant likes',  price: 79, pop: false },
+      { id: 'basic',   name: 'Basic',        desc: 'Standard likes (No Refill)',          price: 49, pop: false },
+      { id: 'popular', name: 'Most Popular',  desc: 'High quality likes (1 Month Refill)',      price: 59, pop: true  },
+      { id: 'premium', name: 'Premium',       desc: 'Real Indian likes (3 Months Refill)',       price: 69, pop: false },
+      { id: 'ultra',   name: 'Ultra Premium', desc: 'Top tier instant likes (1 Year Refill)',  price: 79, pop: false },
     ]
   },
   {
@@ -53,10 +53,10 @@ const SERVICES = [
     placeholder: 'https://instagram.com/reel/...',
     label: 'Reel or Video Link',
     types: [
-      { id: 'basic',   name: 'Basic',        desc: 'Standard views',           price: 9,  pop: false },
-      { id: 'popular', name: 'Most Popular',  desc: 'High retention views',     price: 12, pop: true  },
-      { id: 'premium', name: 'Premium',       desc: 'Premium quality views',    price: 15, pop: false },
-      { id: 'ultra',   name: 'Ultra Premium', desc: 'Highest quality + reach',  price: 29, pop: false },
+      { id: 'basic',   name: 'Basic',        desc: 'Standard views (No Refill)',           price: 9,  pop: false },
+      { id: 'popular', name: 'Most Popular',  desc: 'High retention views (1 Month Refill)',     price: 12, pop: true  },
+      { id: 'premium', name: 'Premium',       desc: 'Premium quality views (3 Months Refill)',    price: 15, pop: false },
+      { id: 'ultra',   name: 'Ultra Premium', desc: 'Highest quality + reach (1 Year Refill)',  price: 29, pop: false },
     ]
   },
   {
@@ -83,8 +83,8 @@ const SERVICES = [
     placeholder: 'https://instagram.com/p/...',
     label: 'Post or Reel Link',
     types: [
-      { id: 'basic',   name: 'Basic',   desc: 'Standard shares',      price: 19, pop: true  },
-      { id: 'premium', name: 'Premium', desc: 'High quality shares',   price: 25, pop: false },
+      { id: 'basic',   name: 'Basic',   desc: 'Standard shares (No Refill)',      price: 19, pop: true  },
+      { id: 'premium', name: 'Premium', desc: 'High quality shares (3 Months Refill)',   price: 25, pop: false },
     ]
   },
   {
@@ -97,8 +97,8 @@ const SERVICES = [
     placeholder: 'https://instagram.com/p/...',
     label: 'Post or Reel Link',
     types: [
-      { id: 'basic',   name: 'Basic',   desc: 'Standard saves',       price: 39, pop: true  },
-      { id: 'premium', name: 'Premium', desc: 'High quality saves',    price: 59, pop: false },
+      { id: 'basic',   name: 'Basic',   desc: 'Standard saves (No Refill)',       price: 39, pop: true  },
+      { id: 'premium', name: 'Premium', desc: 'High quality saves (3 Months Refill)',    price: 59, pop: false },
     ]
   },
   {
@@ -111,8 +111,8 @@ const SERVICES = [
     placeholder: 'https://instagram.com/username',
     label: 'Instagram Profile Link',
     types: [
-      { id: 'basic',   name: 'Basic',   desc: 'Standard story views',  price: 49, pop: true  },
-      { id: 'premium', name: 'Premium', desc: 'High quality views',    price: 59, pop: false },
+      { id: 'basic',   name: 'Basic',   desc: 'Standard story views (No Refill)',  price: 49, pop: true  },
+      { id: 'premium', name: 'Premium', desc: 'High quality views (3 Months Refill)',    price: 59, pop: false },
     ]
   },
   {
@@ -125,8 +125,8 @@ const SERVICES = [
     placeholder: 'https://instagram.com/username',
     label: 'Instagram Profile Link',
     types: [
-      { id: 'basic',   name: 'Basic',   desc: 'Profile visits & impressions', price: 25, pop: true  },
-      { id: 'premium', name: 'Premium', desc: 'High quality with reach',      price: 29, pop: false },
+      { id: 'basic',   name: 'Basic',   desc: 'Profile visits & impressions (No Refill)', price: 25, pop: true  },
+      { id: 'premium', name: 'Premium', desc: 'High quality with reach (3 Months Refill)',      price: 29, pop: false },
     ]
   },
   {

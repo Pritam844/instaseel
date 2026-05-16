@@ -224,6 +224,33 @@ input, select { font: inherit; color: inherit; }
   border-radius: 50px;
 }
 
+.region-switcher {
+  display: flex;
+  background: var(--bg);
+  padding: 3px;
+  border-radius: 50px;
+  margin-left: 8px;
+}
+
+.region-btn {
+  padding: 6px 14px;
+  font-size: .78rem;
+  font-weight: 700;
+  border-radius: 50px;
+  transition: all .2s var(--ease);
+  color: var(--text-secondary);
+}
+
+.region-btn:hover {
+  color: var(--text);
+}
+
+.region-btn.active {
+  background: var(--white);
+  color: var(--green-dark);
+  box-shadow: var(--shadow-sm);
+}
+
 .ah-right {
   display: flex;
   align-items: center;
