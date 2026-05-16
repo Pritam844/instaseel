@@ -6,57 +6,57 @@ const { useState, useEffect, useMemo } = React;
 // ── SERVICES & PRICES (USD) ──
 const SERVICES = [
   {
-    id:'followers', name:'Followers', emoji:'👥',
-    desc:'Real Instagram followers', delivery:'0–60 min', linkType:'profile',
-    types:[
-      {id:'basic',name:'Basic',desc:'Mixed quality (No Refill)',price:4.99,pop:false},
-      {id:'standard',name:'Standard',desc:'High quality (1 Month Refill)',price:7.99,pop:false},
-      {id:'premium',name:'Premium',desc:'Top quality (3 Months Refill)',price:11.99,pop:true},
-      {id:'ultra',name:'Ultra',desc:'Highest quality (1 Year Refill)',price:15.99,pop:false},
+    id: 'followers', name: 'Followers', emoji: '👥',
+    desc: 'Real Instagram followers', delivery: '0–60 min', linkType: 'profile',
+    types: [
+      { id: 'basic', name: 'Basic', desc: 'Mixed quality', price: 3.99, pop: false },
+      { id: 'popular', name: 'Most Popular', desc: 'HQ + Refill', price: 5.99, pop: true },
+      { id: 'premium', name: 'Premium', desc: 'Top quality', price: 7.99, pop: false },
+      { id: 'ultra', name: 'Ultra Premium', desc: 'Indian/Real profiles', price: 9.99, pop: false },
     ]
   },
   {
-    id:'likes', name:'Likes', emoji:'❤️',
-    desc:'Instant likes on posts & reels', delivery:'0–15 min', linkType:'post',
-    types:[
-      {id:'basic',name:'Basic',desc:'Standard likes (No Refill)',price:1.99,pop:false},
-      {id:'standard',name:'Standard',desc:'High quality (1 Month Refill)',price:2.99,pop:false},
-      {id:'premium',name:'Premium',desc:'Real engagement (3 Months Refill)',price:3.99,pop:true},
-      {id:'ultra',name:'Ultra',desc:'Top tier instant (1 Year Refill)',price:4.99,pop:false},
+    id: 'likes', name: 'Likes', emoji: '❤️',
+    desc: 'Instant likes on posts & reels', delivery: '0–15 min', linkType: 'post',
+    types: [
+      { id: 'basic', name: 'Basic', desc: 'Standard likes', price: 1.99, pop: false },
+      { id: 'popular', name: 'Most Popular', desc: 'HQ likes', price: 2.99, pop: true },
+      { id: 'premium', name: 'Premium', desc: 'Real Indian likes', price: 3.99, pop: false },
+      { id: 'ultra', name: 'Ultra Premium', desc: 'Top tier instant', price: 4.99, pop: false },
     ]
   },
   {
-    id:'views', name:'Views', emoji:'👁️',
-    desc:'Boost views on reels & videos', delivery:'0–10 min', linkType:'post',
-    types:[
-      {id:'basic',name:'Basic',desc:'Standard views (No Refill)',price:0.99,pop:false},
-      {id:'standard',name:'Standard',desc:'High retention (1 Month Refill)',price:1.49,pop:false},
-      {id:'premium',name:'Premium',desc:'Premium quality (3 Months Refill)',price:1.99,pop:true},
-      {id:'ultra',name:'Ultra',desc:'Highest quality + reach (1 Year Refill)',price:2.99,pop:false},
+    id: 'views', name: 'Views', emoji: '👁️',
+    desc: 'Boost views on reels & videos', delivery: '0–10 min', linkType: 'post',
+    types: [
+      { id: 'basic', name: 'Basic', desc: 'Standard views', price: 0.99, pop: false },
+      { id: 'popular', name: 'Most Popular', desc: 'High retention', price: 1.49, pop: true },
+      { id: 'premium', name: 'Premium', desc: 'Premium quality', price: 1.99, pop: false },
+      { id: 'ultra', name: 'Ultra Premium', desc: 'Highest quality + reach', price: 3.99, pop: false },
     ]
   },
   {
-    id:'comments', name:'Comments', emoji:'💬',
-    desc:'Real comments on your posts', delivery:'0–60 min', linkType:'post',
-    types:[
-      {id:'random',name:'Random Comments',desc:'Pre-written relevant comments',price:8.99,pop:true},
-      {id:'custom',name:'Custom Comments',desc:'You provide the comment text',price:11.99,pop:false},
+    id: 'comments', name: 'Comments', emoji: '💬',
+    desc: 'Real comments on your posts', delivery: '0–60 min', linkType: 'post',
+    types: [
+      { id: 'random', name: 'Random Comments', desc: 'Pre-written comments', price: 6.99, pop: true },
+      { id: 'custom', name: 'Custom Comments', desc: 'User custom text', price: 9.99, pop: false },
     ]
   },
   {
-    id:'shares', name:'Shares', emoji:'🔄',
-    desc:'Increase shares to boost reach', delivery:'0–30 min', linkType:'post',
-    types:[
-      {id:'basic',name:'Basic',desc:'Standard shares (No Refill)',price:1.49,pop:true},
-      {id:'premium',name:'Premium',desc:'High quality (3 Months Refill)',price:2.49,pop:false},
+    id: 'shares', name: 'Shares', emoji: '🔄',
+    desc: 'Increase shares to boost reach', delivery: '0–30 min', linkType: 'post',
+    types: [
+      { id: 'basic', name: 'Basic', desc: 'Standard shares', price: 1.49, pop: true },
+      { id: 'premium', name: 'Premium', desc: 'High quality', price: 2.49, pop: false },
     ]
   },
   {
-    id:'saves', name:'Saves', emoji:'🔖',
-    desc:'Get saves to boost post ranking', delivery:'0–30 min', linkType:'post',
-    types:[
-      {id:'basic',name:'Basic',desc:'Standard saves (No Refill)',price:2.49,pop:true},
-      {id:'premium',name:'Premium',desc:'High quality (3 Months Refill)',price:3.99,pop:false},
+    id: 'saves', name: 'Saves', emoji: '🔖',
+    desc: 'Get saves to boost post ranking', delivery: '0–30 min', linkType: 'post',
+    types: [
+      { id: 'basic', name: 'Basic', desc: 'Standard saves', price: 2.99, pop: true },
+      { id: 'premium', name: 'Premium', desc: 'High quality', price: 4.99, pop: false },
     ]
   },
 ];

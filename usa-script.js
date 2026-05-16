@@ -24,87 +24,87 @@ const SERVICES = [
     id: 'followers', name: 'Followers', emoji: '👥', delivery: '0–60 min', linkType: 'profile',
     placeholder: 'https://instagram.com/username', label: 'Instagram Profile Link',
     types: [
-      { id: 'basic', name: 'Basic', desc: 'Mixed quality (No Refill)', price: 4.99, pop: false },
-      { id: 'popular', name: 'Standard', desc: 'High quality (1 Month Refill)', price: 7.99, pop: true },
-      { id: 'premium', name: 'Premium', desc: 'Top quality (3 Months Refill)', price: 11.99, pop: false },
-      { id: 'ultra', name: 'Ultra', desc: 'Highest quality (1 Year Refill)', price: 15.99, pop: false },
+      { id: 'basic', name: 'Basic', desc: 'Mixed quality', price: 3.99, pop: false },
+      { id: 'popular', name: 'Most Popular', desc: 'HQ + Refill', price: 5.99, pop: true },
+      { id: 'premium', name: 'Premium', desc: 'Top quality', price: 7.99, pop: false },
+      { id: 'ultra', name: 'Ultra Premium', desc: 'Indian/Real profiles', price: 9.99, pop: false },
     ]
   },
   {
     id: 'likes', name: 'Likes', emoji: '❤️', delivery: '0–15 min', linkType: 'post',
     placeholder: 'https://instagram.com/p/...', label: 'Post or Reel Link',
     types: [
-      { id: 'basic', name: 'Basic', desc: 'Standard likes (No Refill)', price: 1.99, pop: false },
-      { id: 'popular', name: 'Standard', desc: 'High quality (1 Month Refill)', price: 2.99, pop: true },
-      { id: 'premium', name: 'Premium', desc: 'Real engagement (3 Months Refill)', price: 3.99, pop: false },
-      { id: 'ultra', name: 'Ultra', desc: 'Top tier instant (1 Year Refill)', price: 4.99, pop: false },
+      { id: 'basic', name: 'Basic', desc: 'Standard likes', price: 1.99, pop: false },
+      { id: 'popular', name: 'Most Popular', desc: 'HQ likes', price: 2.99, pop: true },
+      { id: 'premium', name: 'Premium', desc: 'Real Indian likes', price: 3.99, pop: false },
+      { id: 'ultra', name: 'Ultra Premium', desc: 'Top tier instant', price: 4.99, pop: false },
     ]
   },
   {
     id: 'views', name: 'Views', emoji: '👁️', delivery: '0–10 min', linkType: 'post',
     placeholder: 'https://instagram.com/reel/...', label: 'Reel or Video Link',
     types: [
-      { id: 'basic', name: 'Basic', desc: 'Standard views (No Refill)', price: 0.99, pop: false },
-      { id: 'popular', name: 'Standard', desc: 'High retention (1 Month Refill)', price: 1.49, pop: true },
-      { id: 'premium', name: 'Premium', desc: 'Premium quality (3 Months Refill)', price: 1.99, pop: false },
-      { id: 'ultra', name: 'Ultra', desc: 'Highest quality + reach (1 Year Refill)', price: 2.99, pop: false },
+      { id: 'basic', name: 'Basic', desc: 'Standard views', price: 0.99, pop: false },
+      { id: 'popular', name: 'Most Popular', desc: 'High retention', price: 1.49, pop: true },
+      { id: 'premium', name: 'Premium', desc: 'Premium quality', price: 1.99, pop: false },
+      { id: 'ultra', name: 'Ultra Premium', desc: 'Highest quality + reach', price: 3.99, pop: false },
     ]
   },
   {
     id: 'comments', name: 'Comments', emoji: '💬', delivery: '0–60 min', linkType: 'post',
     placeholder: 'https://instagram.com/p/...', label: 'Post Link',
     types: [
-      { id: 'random', name: 'Random', desc: 'Pre-written relevant comments', price: 8.99, pop: true },
-      { id: 'custom', name: 'Custom', desc: 'You provide the comment text', price: 11.99, pop: false },
+      { id: 'random', name: 'Random', desc: 'Pre-written comments', price: 6.99, pop: true },
+      { id: 'custom', name: 'Custom', desc: 'User custom text', price: 9.99, pop: false },
     ]
   },
   {
     id: 'shares', name: 'Shares', emoji: '🔄', delivery: '0–30 min', linkType: 'post',
     placeholder: 'https://instagram.com/p/...', label: 'Post or Reel Link',
     types: [
-      { id: 'basic', name: 'Basic', desc: 'Standard shares (No Refill)', price: 1.49, pop: true },
-      { id: 'premium', name: 'Premium', desc: 'High quality (3 Months Refill)', price: 2.49, pop: false },
+      { id: 'basic', name: 'Basic', desc: 'Standard shares', price: 1.49, pop: true },
+      { id: 'premium', name: 'Premium', desc: 'High quality', price: 2.49, pop: false },
     ]
   },
   {
     id: 'saves', name: 'Saves', emoji: '🔖', delivery: '0–30 min', linkType: 'post',
     placeholder: 'https://instagram.com/p/...', label: 'Post or Reel Link',
     types: [
-      { id: 'basic', name: 'Basic', desc: 'Standard saves (No Refill)', price: 2.49, pop: true },
-      { id: 'premium', name: 'Premium', desc: 'High quality (3 Months Refill)', price: 3.99, pop: false },
+      { id: 'basic', name: 'Basic', desc: 'Standard saves', price: 2.99, pop: true },
+      { id: 'premium', name: 'Premium', desc: 'High quality', price: 4.99, pop: false },
     ]
   },
   {
     id: 'story-views', name: 'Story Views', emoji: '👀', delivery: '0–30 min', linkType: 'profile',
     placeholder: 'https://instagram.com/username', label: 'Instagram Profile Link',
     types: [
-      { id: 'basic', name: 'Basic', desc: 'Standard views (No Refill)', price: 1.99, pop: true },
-      { id: 'premium', name: 'Premium', desc: 'High quality (3 Months Refill)', price: 2.99, pop: false },
+      { id: 'basic', name: 'Basic', desc: 'Standard views', price: 2.99, pop: true },
+      { id: 'premium', name: 'Premium', desc: 'High quality', price: 4.99, pop: false },
     ]
   },
   {
     id: 'insights', name: 'Insights / Visits', emoji: '📊', delivery: '0–30 min', linkType: 'post',
     placeholder: 'https://instagram.com/p/...', label: 'Post or Reel Link',
     types: [
-      { id: 'basic', name: 'Basic', desc: 'Standard (No Refill)', price: 1.49, pop: true },
-      { id: 'premium', name: 'Premium', desc: 'High quality (3 Months Refill)', price: 1.99, pop: false },
+      { id: 'basic', name: 'Basic', desc: 'Standard insights', price: 1.99, pop: true },
+      { id: 'premium', name: 'Premium', desc: 'High quality', price: 2.99, pop: false },
     ]
   },
   {
     id: 'live-viewers', name: 'Live Viewers', emoji: '🔴', delivery: '0–10 min', linkType: 'profile',
     placeholder: 'https://instagram.com/username', label: 'Instagram Username',
     types: [
-      { id: 'basic', name: 'Basic (30 min)', desc: 'Stable viewers for 30 min', price: 29.99, pop: true },
-      { id: 'premium', name: 'Premium (60 min)', desc: 'Stable viewers for 60 min', price: 49.99, pop: false },
+      { id: 'basic', name: '30 Minutes', desc: 'Stable viewers for 30 min', price: 24.99, pop: true },
+      { id: 'premium', name: '60 Minutes', desc: 'Stable viewers for 60 min', price: 49.99, pop: false },
     ]
   },
   {
     id: 'trending', name: 'Trending Package', emoji: '🔥', delivery: '0–120 min', linkType: 'post',
     placeholder: 'https://instagram.com/p/...', label: 'Post or Reel Link',
     types: [
-      { id: 'starter', name: 'Starter Pack', desc: 'Likes + Views + Saves', price: 39.99, pop: true },
-      { id: 'viral', name: 'Viral Pack', desc: 'Boost to Explore Page', price: 79.99, pop: false },
-      { id: 'mega', name: 'Mega Pack', desc: 'Max reach and engagement', price: 119.99, pop: false },
+      { id: 'starter', name: 'Starter Pack', desc: 'Likes + Views + Saves', price: 19.99, pop: true },
+      { id: 'viral', name: 'Viral Pack', desc: 'Boost to Explore Page', price: 39.99, pop: false },
+      { id: 'mega', name: 'Mega Pack', desc: 'Max reach and engagement', price: 59.99, pop: false },
     ]
   }
 ];

@@ -4,8 +4,21 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js";
 import { getFirestore, doc, getDoc, setDoc, collection, addDoc, onSnapshot, updateDoc, deleteDoc, query, orderBy } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-firestore.js";
 
-const app = initializeApp(window.firebaseConfig);
-const db  = getFirestore(app);
+// Global helpers
+const $ = s => document.querySelector(s);
+const $$ = s => document.querySelectorAll(s);
+
+let db;
+try {
+  if (!window.firebaseConfig) {
+    throw new Error("Firebase Config missing! Check firebase-config.js");
+  }
+  const app = initializeApp(window.firebaseConfig);
+  db = getFirestore(app);
+} catch (e) {
+  console.error("Firebase Init Error:", e);
+  alert("Critical Error: Firebase failed to initialize. " + e.message);
+}
 
 // ============================================
 // ADMIN PANEL — CONSTANTS
@@ -29,12 +42,16 @@ const DEFAULT_SERVICES_INDIA = [
 ];
 
 const DEFAULT_SERVICES_USA = [
-  { id: 'followers', name: 'Followers', emoji: '👥', types: [{ id: 'basic', name: 'Basic', price: 4.99 }, { id: 'popular', name: 'Standard', price: 7.99 }, { id: 'premium', name: 'Premium', price: 11.99 }, { id: 'ultra', name: 'Ultra', price: 15.99 }] },
-  { id: 'likes', name: 'Likes', emoji: '❤️', types: [{ id: 'basic', name: 'Basic', price: 1.99 }, { id: 'popular', name: 'Standard', price: 2.99 }, { id: 'premium', name: 'Premium', price: 3.99 }, { id: 'ultra', name: 'Ultra', price: 4.99 }] },
-  { id: 'views', name: 'Views', emoji: '👁️', types: [{ id: 'basic', name: 'Basic', price: 0.99 }, { id: 'popular', name: 'Standard', price: 1.49 }, { id: 'premium', name: 'Premium', price: 1.99 }, { id: 'ultra', name: 'Ultra', price: 2.99 }] },
-  { id: 'comments', name: 'Comments', emoji: '💬', types: [{ id: 'random', name: 'Random', price: 8.99 }, { id: 'custom', name: 'Custom', price: 11.99 }] },
+  { id: 'followers', name: 'Followers', emoji: '👥', types: [{ id: 'basic', name: 'Basic', price: 3.99 }, { id: 'popular', name: 'Most Popular', price: 5.99 }, { id: 'premium', name: 'Premium', price: 7.99 }, { id: 'ultra', name: 'Ultra Premium', price: 9.99 }] },
+  { id: 'likes', name: 'Likes', emoji: '❤️', types: [{ id: 'basic', name: 'Basic', price: 1.99 }, { id: 'popular', name: 'Most Popular', price: 2.99 }, { id: 'premium', name: 'Premium', price: 3.99 }, { id: 'ultra', name: 'Ultra Premium', price: 4.99 }] },
+  { id: 'views', name: 'Views', emoji: '👁️', types: [{ id: 'basic', name: 'Basic', price: 0.99 }, { id: 'popular', name: 'Most Popular', price: 1.49 }, { id: 'premium', name: 'Premium', price: 1.99 }, { id: 'ultra', name: 'Ultra Premium', price: 3.99 }] },
+  { id: 'comments', name: 'Comments', emoji: '💬', types: [{ id: 'random', name: 'Random Comments', price: 6.99 }, { id: 'custom', name: 'Custom Comments', price: 9.99 }] },
   { id: 'shares', name: 'Shares', emoji: '🔄', types: [{ id: 'basic', name: 'Basic', price: 1.49 }, { id: 'premium', name: 'Premium', price: 2.49 }] },
-  { id: 'saves', name: 'Saves', emoji: '🔖', types: [{ id: 'basic', name: 'Basic', price: 2.49 }, { id: 'premium', name: 'Premium', price: 3.99 }] },
+  { id: 'saves', name: 'Saves', emoji: '🔖', types: [{ id: 'basic', name: 'Basic', price: 2.99 }, { id: 'premium', name: 'Premium', price: 4.99 }] },
+  { id: 'story-views', name: 'Story Views', emoji: '👀', types: [{ id: 'basic', name: 'Basic', price: 2.99 }, { id: 'premium', name: 'Premium', price: 4.99 }] },
+  { id: 'insights', name: 'Insights / Visits', emoji: '📊', types: [{ id: 'basic', name: 'Basic', price: 1.99 }, { id: 'premium', name: 'Premium', price: 2.99 }] },
+  { id: 'live-viewers', name: 'Live Viewers', emoji: '🔴', types: [{ id: 'basic', name: '30 Minutes', price: 24.99 }, { id: 'premium', name: '60 Minutes', price: 49.99 }] },
+  { id: 'trending', name: 'Trending Package', emoji: '🔥', types: [{ id: 'starter', name: 'Starter Pack', price: 19.99 }, { id: 'viral', name: 'Viral Pack', price: 39.99 }, { id: 'mega', name: 'Mega Pack', price: 59.99 }] },
 ];
 
 // ============================================
@@ -43,12 +60,6 @@ const DEFAULT_SERVICES_USA = [
 let currentRegion = 'india';
 let allOrders = [];
 let ordersUnsubscribe = null;
-
-// ============================================
-// DOM
-// ============================================
-const $ = s => document.querySelector(s);
-const $$ = s => document.querySelectorAll(s);
 
 // ============================================
 // INIT
@@ -114,11 +125,17 @@ function showDashboard() {
 }
 
 function initRealtimeOrders() {
+  if (!db) return;
   const coll = currentRegion === 'usa' ? "orders_usa" : "orders";
   const q = query(collection(db, coll), orderBy("date", "desc"));
   ordersUnsubscribe = onSnapshot(q, (snapshot) => {
     allOrders = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
     renderOrders();
+  }, (err) => {
+    console.error("Snapshot error:", err);
+    if (err.message.includes('permission')) {
+      alert("Permission Error: Please update your Firestore Rules as instructed.");
+    }
   });
 }
 
@@ -150,7 +167,6 @@ function bindDashboard() {
   $('#modal-close').addEventListener('click', closeModal);
   $('#modal-overlay').addEventListener('click', e => { if (e.target === $('#modal-overlay')) closeModal(); });
 
-  // Create Order Modal
   $('#add-order-btn').addEventListener('click', openCreateModal);
   $('#create-modal-close').addEventListener('click', closeCreateModal);
   $('#create-modal-cancel').addEventListener('click', closeCreateModal);
@@ -192,7 +208,6 @@ async function updateAcPrice() {
     if (type) {
       const qty = parseInt($('#ac-qty').value) || 0;
       const price = (type.price / 1000) * qty;
-      const symbol = currentRegion === 'usa' ? '$' : '₹';
       $('#ac-price').value = currentRegion === 'usa' ? price.toFixed(2) : Math.round(price);
     }
   }
@@ -218,35 +233,48 @@ function parseUsername(val) {
 
 async function onAdminCreateSubmit(e) {
   e.preventDefault();
+  if (!db) return alert("Database not ready!");
+  
   const isUSA = currentRegion === 'usa';
   const coll = isUSA ? "orders_usa" : "orders";
   const symbol = isUSA ? '$' : '₹';
-  const services = await getCurrentPrices();
-  const svc = services.find(s => s.id === $('#ac-service').value);
-  const type = svc.types.find(t => t.id === $('#ac-type').value);
-  const link = $('#ac-link').value;
-  const username = parseUsername(link);
-  const priceVal = $('#ac-price').value;
-  const fmtPrice = priceVal.includes(symbol) ? priceVal : `${symbol}${priceVal}`;
-
-  const data = {
-    date: new Date().toISOString(),
-    service: svc.name,
-    type: type.name,
-    link: link,
-    username: username,
-    quantity: parseInt($('#ac-qty').value),
-    before_count: parseInt($('#ac-before').value) || 0,
-    after_count: parseInt($('#ac-after').value) || 0,
-    price: fmtPrice,
-    status: 'pending'
-  };
-
+  
   try {
+    const services = await getCurrentPrices();
+    const svcId = $('#ac-service').value;
+    const typeId = $('#ac-type').value;
+    
+    if (!svcId || !typeId) throw new Error("Please select both Service and Tier");
+
+    const svc = services.find(s => s.id === svcId);
+    const type = svc.types.find(t => t.id === typeId);
+
+    const link = $('#ac-link').value.trim();
+    const username = parseUsername(link);
+    const priceVal = $('#ac-price').value.trim();
+    const fmtPrice = priceVal.includes(symbol) ? priceVal : `${symbol}${priceVal}`;
+
+    const data = {
+      date: new Date().toISOString(),
+      service: svc.name,
+      type: type.name,
+      link: link,
+      username: username,
+      quantity: Number($('#ac-qty').value) || 1000,
+      before_count: Number($('#ac-before').value) || 0,
+      after_count: Number($('#ac-after').value) || 0,
+      price: fmtPrice,
+      status: 'pending'
+    };
+
+    console.log("Submitting order to:", coll, data);
     await addDoc(collection(db, coll), data);
-    adminToast('✅ Order created manually');
+    adminToast('✅ Order created successfully');
     closeCreateModal();
-  } catch (err) { adminToast('❌ Error creating order'); }
+  } catch (err) { 
+    console.error("Create Order Error:", err);
+    alert("Error creating order: " + err.message);
+  }
 }
 
 function populateServiceFilter() {
@@ -325,6 +353,7 @@ window.viewOrder = function(id) {
 };
 
 window.cycleStatus = async function(id) {
+  if (!db) return;
   const coll = currentRegion === 'usa' ? "orders_usa" : "orders";
   const o = allOrders.find(x => x.id === id);
   if (!o) return;
@@ -333,6 +362,7 @@ window.cycleStatus = async function(id) {
 };
 
 window.deleteOrder = async function(id) {
+  if (!db) return;
   const coll = currentRegion === 'usa' ? "orders_usa" : "orders";
   if (!confirm(`Delete order?`)) return;
   try { await deleteDoc(doc(db, coll, id)); adminToast(`Order deleted`); } catch (err) {}
@@ -348,6 +378,7 @@ function exportOrders() {
 }
 
 async function getCurrentPrices() {
+  if (!db) return currentRegion === 'usa' ? DEFAULT_SERVICES_USA : DEFAULT_SERVICES_INDIA;
   const priceDoc = currentRegion === 'usa' ? "prices_usa" : "prices";
   const defaultServices = currentRegion === 'usa' ? DEFAULT_SERVICES_USA : DEFAULT_SERVICES_INDIA;
   try {
@@ -395,6 +426,7 @@ window.togglePmAccordion = function(btn) {
 };
 
 async function savePrices() {
+  if (!db) return;
   const priceDoc = currentRegion === 'usa' ? "prices_usa" : "prices";
   const services = await getCurrentPrices();
   $$('.pm-price-input').forEach(input => {
